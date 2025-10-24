@@ -43,6 +43,42 @@ export default defineConfig([
 ])
 ```
 
+## Docker Setup
+
+This project includes a Dockerfile for containerizing the frontend application.
+
+### Building the Docker Image
+
+To build the Docker image, run:
+
+```bash
+docker build -t planet-client .
+```
+
+### Running the Container
+
+To run the containerized application, use:
+
+```bash
+npm run docker:up
+```
+
+The application will be accessible at `http://localhost:3000`.
+
+### Stopping and Removing the Container
+
+To stop and remove the container:
+
+```bash
+npm run docker:down
+```
+
+### Additional Notes
+
+- The Dockerfile uses a multi-stage build for optimization: it builds the app in a Node.js environment and serves it using nginx.
+- Ensure Docker is installed and running on your system.
+- The build process installs all dependencies (including dev dependencies) to compile TypeScript and build the app.
+
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js

@@ -18,6 +18,11 @@ dist-ssr
 # VITE conf
 vite.config.ts
 
+# docker files
+Dockerfile.dev
+docker-compose.yml
+.dockerignore
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
