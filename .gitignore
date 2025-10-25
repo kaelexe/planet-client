@@ -24,7 +24,7 @@ docker-compose.yml
 .dockerignore
 
 # tissue paper files
-.tp
+*.tp
 
 # Editor directories and files
 .vscode/*
