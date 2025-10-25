@@ -23,6 +23,9 @@ Dockerfile.dev
 docker-compose.yml
 .dockerignore
 
+# tissue paper files
+.tp
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
