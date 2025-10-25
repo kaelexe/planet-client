@@ -1,7 +1,9 @@
 import React from "react";
 import Monitor from "../../assets/images/monitor.svg?react";
+import Klx from "../../assets/images/klx_main.svg?react";
 
 const icons = {
+  klx: Klx,
   dashboard: Monitor,
 };
 
