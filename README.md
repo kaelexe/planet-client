@@ -139,7 +139,6 @@ planet-client/
 
 ## Additional Notes
 
-- The app supports light and dark themes via Tailwind CSS.
 - Redux is used for state management, with RTK Query for API interactions.
 - Ant Design provides UI components for a polished interface.
 - ESLint is configured for code quality with React-specific rules.

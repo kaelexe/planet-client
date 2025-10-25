@@ -1,13 +1,13 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_PROXY_URL,
+  baseURL: "/api",
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-const DEBUG_API = import.meta.env.VITE_DEBUG_API === "true";
+const DEBUG_API = import.meta.env.DEBUG === "true";
 
 // 🟦 REQUEST INTERCEPTOR
 api.interceptors.request.use(
