@@ -43,6 +43,7 @@ A modern task management application built with React, TypeScript, and Vite.
 - `typescript`: ~5.9.3
 - `typescript-eslint`: ^8.45.0
 - `vite`: ^7.1.7
+- `vite-plugin-svgr`: "^4.5.0"
 
 ## Setups
 
