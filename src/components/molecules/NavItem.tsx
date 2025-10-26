@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "antd";
+import { Button, theme } from "antd";
 import type { BaseButtonProps } from "antd/es/button/button";
 
 interface NavItemProps {
@@ -15,13 +15,20 @@ const NavItem: React.FC<NavItemProps> = ({
   icon,
   onClick = () => {},
 }) => {
+  const { token } = theme.useToken();
   const [hovered, setHovered] = React.useState(false);
 
-  const textColor = isActive
-    ? "#0040ca" // active
+  const backgroundColor = isActive
+    ? token.colorPrimary + "26" // oppacity
     : hovered
-    ? "#555" // on hover
-    : "#888"; // default
+    ? token.colorFillSecondary
+    : "transparent";
+
+  const textColor = isActive
+    ? token.colorPrimary
+    : hovered
+    ? token.colorTextBase
+    : token.colorTextSecondary;
 
   const buttonVariant: BaseButtonProps["variant"] = isActive
     ? "filled"
@@ -33,8 +40,8 @@ const NavItem: React.FC<NavItemProps> = ({
       variant={buttonVariant}
       style={{
         marginRight: 12,
-        backgroundColor: isActive ? "#188fff78" : undefined,
         color: textColor,
+        backgroundColor,
       }}
       onMouseEnter={() => setHovered(!hovered)}
       onMouseLeave={() => setHovered(!hovered)}
