@@ -1,10 +1,11 @@
 import React from "react";
-import { Layout } from "antd";
+import { Layout, theme } from "antd";
 import Navbar, { type NavBarPagesProps } from "../organisms/Navbar";
 import Dashboard from "../pages/Dashboard";
 import Icon from "../atoms/Icon";
 
 const UserLayout: React.FC = () => {
+  const { token } = theme.useToken();
   const { Content, Header, Footer } = Layout;
   const [active, setActive] = React.useState("Dashboard");
 
@@ -21,7 +22,12 @@ const UserLayout: React.FC = () => {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Header style={{ background: "#b4b4b486" }}>
+      <Header
+        style={{
+          background: token.colorBgBase,
+          color: token.colorTextBase,
+        }}
+      >
         <Navbar
           className="flex items-center max-w-7xl min-h-full"
           active={active}

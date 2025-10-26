@@ -1,6 +1,5 @@
 import React from "react";
 import { useTheme } from "../../store/hooks/useTheme";
-import type {} from "../../store/slices/settingsSlice";
 
 const ThemeToggle: React.FC = () => {
   const { theme, setThemeMode } = useTheme();
