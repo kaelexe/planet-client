@@ -21,8 +21,9 @@ const UserLayout: React.FC = () => {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout className="h-screen">
       <Header
+        className=" position-sticky top-0 z-10"
         style={{
           background: token.colorBgBase,
           color: token.colorTextBase,
@@ -36,8 +37,9 @@ const UserLayout: React.FC = () => {
         />
       </Header>
       <Content style={{}}>{renderPage()}</Content>
-      <Footer style={{ background: "#333333", textAlign: "center" }}>
+      <Footer className=" text-center">
         <Icon name="klx" />
+        <h1>ahh</h1>
       </Footer>
     </Layout>
   );
