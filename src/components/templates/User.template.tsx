@@ -21,7 +21,15 @@ const UserLayout: React.FC = () => {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Header style={{ background: "#b4b4b486" }}>
+      <Header
+        style={{
+          background: "#b4b4b4",
+          position: "sticky",
+          top: 0,
+          zIndex: 1,
+          width: "100%",
+        }}
+      >
         <Navbar
           className="flex items-center max-w-7xl min-h-full"
           active={active}
@@ -30,7 +38,12 @@ const UserLayout: React.FC = () => {
         />
       </Header>
       <Content style={{}}>{renderPage()}</Content>
-      <Footer style={{ background: "#333333", textAlign: "center" }}>
+      <Footer
+        style={{
+          background: "#333333",
+          textAlign: "center",
+        }}
+      >
         <Icon name="klx" />
       </Footer>
     </Layout>

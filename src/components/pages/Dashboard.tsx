@@ -1,41 +1,48 @@
 import React from "react";
-import { Button, Card, Typography } from "antd";
-import { useTheme } from "../../store/hooks/useTheme";
+import { Card, Button, Typography, Space } from "antd";
+import ThemeToggle from "../atoms/ThemeToggle";
 
-const { Title, Text } = Typography;
+const { Title, Paragraph } = Typography;
 
 const Dashboard: React.FC = () => {
-  const { theme, setThemeMode } = useTheme();
-
-  const toggleTheme = () => {
-    if (theme === "light") setThemeMode("dark");
-    else if (theme === "dark") setThemeMode("system");
-    else setThemeMode("light");
-  };
-
   return (
-    <div className="min-h-screen transition-colors duration-300 bg-background-light dark:bg-background-dark flex flex-col items-center justify-center gap-6">
-      {/* Ant Design Card */}
-      <Card
-        className="w-[400px] shadow-lg bg-white/70 dark:bg-[#1e293b]/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 transition-colors duration-300"
-        title={<Title level={3}>Dashboard</Title>}
-      >
-        <Text className="block mb-4 text-gray-700 dark:text-gray-300">
-          Current Theme:{" "}
-          <span className="font-semibold text-primary dark:text-secondary">
-            {theme.toUpperCase()}
-          </span>
-        </Text>
+    <div
+      className="min-h-screen flex flex-col items-center justify-center gap-6 
+                    bg-(--ant-color-bg-base) text-(--ant-color-text-base) p-8"
+    >
+      <Title>Dashboard</Title>
 
-        <Button type="primary" onClick={toggleTheme} className="w-full">
-          Toggle Theme
-        </Button>
-      </Card>
+      <Paragraph className="text-center max-w-lg">
+        This dashboard lets you test theme changes across light, dark, and
+        seasonal modes. The colors below adapt automatically to your theme.
+      </Paragraph>
 
-      {/* Tailwind-only demo box */}
-      <div className="p-4 rounded-lg shadow-md bg-primary text-textSecondary dark:textPrimary dark:deepSpace transition-colors">
-        <p>Tailwind Primary Box</p>
-      </div>
+      <Space direction="vertical" size="large" className="w-full max-w-md">
+        <Card title="Primary Actions">
+          <Space>
+            <Button type="primary">Primary</Button>
+            <Button type="default">Default</Button>
+            <Button type="dashed">Dashed</Button>
+          </Space>
+        </Card>
+
+        <Card title="Status Colors">
+          <Space wrap>
+            <Button type="primary">Primary</Button>
+            <Button type="default" danger>
+              Danger
+            </Button>
+            <Button type="dashed">Info</Button>
+            <Button style={{ backgroundColor: "#10b981", color: "white" }}>
+              Success
+            </Button>
+          </Space>
+        </Card>
+
+        <Card title="Theme Selector">
+          <ThemeToggle />
+        </Card>
+      </Space>
     </div>
   );
 };
