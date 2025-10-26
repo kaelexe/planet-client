@@ -1,6 +1,7 @@
 import React from "react";
 import NavItem from "../molecules/NavItem";
 import ThemeToggle from "../atoms/ThemeToggle";
+import Icon from "../atoms/Icon";
 
 export interface NavBarPagesProps {
   pageLabel: string;
@@ -21,6 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({
   className,
 }) => (
   <nav className={`${className} mx-auto px-4 sm:px-6 lg:px-8`}>
+    <Icon name="logoMedium" size={40} className="mr-4" />
     {pages.map((page) => {
       return (
         <NavItem

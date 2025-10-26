@@ -1,5 +1,6 @@
 import React from "react";
 import Monitor from "../../assets/images/monitor.svg?react";
+import LogoMedium from "../../assets/images/planet_logo_m1.svg?react";
 import Klx from "../../assets/images/klx_main.svg?react";
 import Laptop from "../../assets/images/laptop.svg?react";
 import Moon from "../../assets/images/moon.svg?react";
@@ -11,6 +12,7 @@ const icons = {
   laptop: Laptop,
   moon: Moon,
   sun: Sun,
+  logoMedium: LogoMedium,
 };
 
 interface IconProps {
