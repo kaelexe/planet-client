@@ -1,5 +1,6 @@
 import React from "react";
 import NavItem from "../molecules/NavItem";
+import ThemeToggle from "../atoms/ThemeToggle";
 
 export interface NavBarPagesProps {
   pageLabel: string;
@@ -31,6 +32,8 @@ const Navbar: React.FC<NavbarProps> = ({
         />
       );
     })}
+
+    <ThemeToggle />
   </nav>
 );
 

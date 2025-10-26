@@ -1,17 +1,17 @@
 import React from "react";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "../../store/hooks/useTheme";
+import type {} from "../../store/slices/settingsSlice";
 
 const ThemeToggle: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setThemeMode } = useTheme();
 
-  return (
-    <button
-      onClick={toggleTheme}
-      className="px-4 py-2 rounded-md border border-gray-400 dark:border-gray-600"
-    >
-      {theme === "light" ? "🌞 Light" : "🌙 Dark"}
-    </button>
-  );
+  const nextTheme =
+    theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
+
+  const label =
+    theme === "light" ? "🌞 Light" : theme === "dark" ? "🌙 Dark" : "💻 System";
+
+  return <button onClick={() => setThemeMode(nextTheme)}>{label}</button>;
 };
 
 export default ThemeToggle;

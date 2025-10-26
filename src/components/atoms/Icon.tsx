@@ -1,10 +1,16 @@
 import React from "react";
 import Monitor from "../../assets/images/monitor.svg?react";
 import Klx from "../../assets/images/klx_main.svg?react";
+import Laptop from "../../assets/images/laptop.svg?react";
+import Moon from "../../assets/images/moon.svg?react";
+import Sun from "../../assets/images/sun.svg?react";
 
 const icons = {
   klx: Klx,
   dashboard: Monitor,
+  laptop: Laptop,
+  moon: Moon,
+  sun: Sun,
 };
 
 interface IconProps {
