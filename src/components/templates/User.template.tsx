@@ -30,16 +30,15 @@ const UserLayout: React.FC = () => {
         }}
       >
         <Navbar
-          className="flex items-center max-w-7xl min-h-full"
+          className="max-w-7xl min-h-full"
           active={active}
           pages={pages}
           onNavigate={setActive}
         />
       </Header>
       <Content style={{}}>{renderPage()}</Content>
-      <Footer className=" text-center">
+      <Footer className="text-center">
         <Icon name="klx" />
-        <h1>ahh</h1>
       </Footer>
     </Layout>
   );

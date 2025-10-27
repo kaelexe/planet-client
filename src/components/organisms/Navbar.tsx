@@ -1,7 +1,7 @@
 import React from "react";
 import NavItem from "../molecules/NavItem";
-import ThemeToggle from "../atoms/ThemeToggle";
 import Icon from "../atoms/Icon";
+import Settings from "../molecules/Settings";
 
 export interface NavBarPagesProps {
   pageLabel: string;
@@ -21,21 +21,24 @@ const Navbar: React.FC<NavbarProps> = ({
   onNavigate,
   className,
 }) => (
-  <nav className={`${className} mx-auto px-4 sm:px-6 lg:px-8`}>
-    <Icon name="logoMedium" size={40} className="mr-4" />
-    {pages.map((page) => {
-      return (
-        <NavItem
-          key={page.pageLabel}
-          label={page.pageLabel}
-          isActive={active === page.pageLabel}
-          icon={page.icon}
-          onClick={() => onNavigate(page.pageLabel)}
-        />
-      );
-    })}
-
-    <ThemeToggle />
+  <nav
+    className={`flex items-center justify-between ${className} mx-auto px-4 sm:px-6 lg:px-8`}
+  >
+    <section className="flex items-center space-x-4">
+      <Icon name="logoMedium" size={40} className="mr-4" />
+      {pages.map((page) => {
+        return (
+          <NavItem
+            key={page.pageLabel}
+            label={page.pageLabel}
+            isActive={active === page.pageLabel}
+            icon={page.icon}
+            onClick={() => onNavigate(page.pageLabel)}
+          />
+        );
+      })}
+    </section>
+    <Settings />
   </nav>
 );
 
