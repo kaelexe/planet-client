@@ -1,5 +1,5 @@
 import React from "react";
-import { Dropdown, Select } from "antd";
+import { Dropdown } from "antd";
 import { useTheme } from "../../store/hooks/useTheme";
 import type { ThemeMode } from "../../store/slices/settingsSlice";
 
