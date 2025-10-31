@@ -1,14 +1,15 @@
 import type { TaskPriority } from "../enums/task-priority.enum";
 
 export interface Task {
-    id: number;
-    title: string;
-    description?: string;
-    isComplete: boolean;
-    archived: boolean;
-    priority: TaskPriority;
-    createdAt?: Date;
-    updatedAt?: Date;
+  id: number;
+  title: string;
+  description?: string;
+  isComplete: boolean;
+  archived: boolean;
+  priority: TaskPriority;
+  dateDue?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export type TasksQuery = Pick<Task, 'priority' | 'isComplete' | 'archived'>;
