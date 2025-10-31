@@ -3,11 +3,9 @@ import { Layout, theme } from "antd";
 import Navbar, { type NavBarPagesProps } from "../organisms/Navbar";
 import Dashboard from "../pages/Dashboard";
 import Icon from "../atoms/Icon";
-import { useTasks } from "../../store/hooks/useTasks";
 
 const UserLayout: React.FC = () => {
   const { token } = theme.useToken();
-  const { fetchAllTasks } = useTasks();
   const { Content, Header, Footer } = Layout;
   const [active, setActive] = React.useState("Dashboard");
 
@@ -21,11 +19,6 @@ const UserLayout: React.FC = () => {
         return <Dashboard />;
     }
   };
-
-  React.useEffect(() => {
-    // TODO: renders 2 times on mount
-    fetchAllTasks();
-  }, []);
 
   return (
     <Layout className="h-screen">

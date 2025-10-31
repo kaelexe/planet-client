@@ -1,14 +1,14 @@
 import React from "react";
 import { Card, Row, Col, Typography } from "antd";
 import planet from "../../assets/images/dash-image.jpg";
-import { useTasks } from "../../store/hooks/useTasks";
+import { useGetAllTasksQuery } from "../../store/services/tasksApi";
 
 const Dashboard: React.FC = () => {
-  const { tasks } = useTasks();
+  const { data: tasks } = useGetAllTasksQuery();
   const { Text } = Typography;
 
   // TODO:optimize
-  const inCompletedTasks = tasks.filter((task) => !task.isComplete).length;
+  const inCompletedTasks = tasks?.filter((task) => !task.isComplete).length;
 
   return (
     <div className="relative w-full h-[200px] overflow-hidden rounded">
