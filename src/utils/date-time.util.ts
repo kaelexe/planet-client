@@ -102,6 +102,7 @@ export const formatDate = (dateInput: string) => {
     completeDateTime: date.format("ddd, MMMM D, YYYY h:mm A"), // Sat, October 25, 2025 1:38 AM
     dayAndMonth: date.format("dddd, MMMM D"), // Saturday, October 25
     monthDayAndYear: date.format("MMMM D, YYYY"), // October 25, 2025
+    relative: date.fromNow(), // 5 days ago
   };
 };
 
