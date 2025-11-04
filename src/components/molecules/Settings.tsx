@@ -1,26 +1,16 @@
 import React from "react";
 import { Button, Dropdown, type MenuProps, theme, Typography } from "antd";
 import Icon from "../atoms/Icon";
-import ThemeToggle from "../atoms/ThemeToggle";
 import Avatar from "../atoms/Avatar";
 
-const Settings: React.FC = () => {
+export interface SettingProps {
+  items: MenuProps["items"];
+}
+
+const Settings: React.FC<SettingProps> = ({ items }) => {
   const { token } = theme.useToken();
   const [open, setOpen] = React.useState(false);
   const { Text } = Typography;
-  const items: MenuProps["items"] = [
-    {
-      key: 1,
-      label: <ThemeToggle />,
-    },
-    {
-      type: "divider",
-    },
-    {
-      key: 2,
-      label: "Logout",
-    },
-  ];
 
   return (
     <Dropdown

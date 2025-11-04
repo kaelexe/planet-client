@@ -1,5 +1,5 @@
 /* ant design calendar overwrite default */
 
-.ant-picker-calendar.ant-picker-calendar-full .ant-picker-calendar-date-content {
+.task-overview .ant-picker-calendar.ant-picker-calendar-full .ant-picker-calendar-date-content {
     height: 25px;
 }

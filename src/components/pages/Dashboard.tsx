@@ -3,6 +3,7 @@ import { Space, Card, Row, Col, Typography } from "antd";
 import planet from "../../assets/images/dash-image.jpg";
 import { useGetAllTasksQuery } from "../../store/services/tasksApi";
 import Calendar from "../organisms/Calendar";
+import DateTimeDisplay from "../atoms/Clock";
 
 const Dashboard: React.FC = () => {
   const { data: tasks } = useGetAllTasksQuery();
@@ -36,8 +37,9 @@ const Dashboard: React.FC = () => {
       <Row gutter={[16, 16]}>
         {/* Calendar */}
         <Col xs={{ span: 24, order: 1 }} md={{ span: 12, order: 2 }}>
-          <Card>
-            <Calendar />
+          <Card className=" text-right">
+            <DateTimeDisplay />
+            <Calendar parentClassName="task-overview" />
           </Card>
         </Col>
 

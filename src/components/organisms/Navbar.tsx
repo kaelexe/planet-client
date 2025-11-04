@@ -2,6 +2,7 @@ import React from "react";
 import NavItem from "../molecules/NavItem";
 import Icon from "../atoms/Icon";
 import Settings from "../molecules/Settings";
+import ThemeToggle from "../atoms/ThemeToggle";
 
 export interface NavBarPagesProps {
   pageLabel: string;
@@ -38,7 +39,21 @@ const Navbar: React.FC<NavbarProps> = ({
         );
       })}
     </section>
-    <Settings />
+    <Settings
+      items={[
+        {
+          key: 1,
+          label: <ThemeToggle />,
+        },
+        {
+          type: "divider",
+        },
+        {
+          key: 2,
+          label: "Logout",
+        },
+      ]}
+    />
   </nav>
 );
 
