@@ -6,7 +6,7 @@ import Icon from "../atoms/Icon";
 
 const UserLayout: React.FC = () => {
   const { token } = theme.useToken();
-  const { Content, Header, Footer } = Layout;
+  const { Content, Header } = Layout;
   const [active, setActive] = React.useState("Dashboard");
 
   const pages: NavBarPagesProps[] = [
@@ -21,7 +21,7 @@ const UserLayout: React.FC = () => {
   };
 
   return (
-    <Layout className="h-screen">
+    <Layout className="h-screen overflow-auto">
       <Header
         className=" position-sticky top-0 z-10"
         style={{
@@ -39,9 +39,6 @@ const UserLayout: React.FC = () => {
       <Content className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         {renderPage()}
       </Content>
-      <Footer className="text-center">
-        <Icon name="klx" />
-      </Footer>
     </Layout>
   );
 };

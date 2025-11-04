@@ -1,2 +1,5 @@
 @import "App.css";
 @import "tailwindcss";
+
+/* overwrites css */
+@import "./organisms/calendar.overwrite.styles.css"
