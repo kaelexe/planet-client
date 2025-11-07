@@ -1,16 +1,16 @@
 import React from "react";
 import { Space, Card, Row, Col, Typography } from "antd";
 import planet from "../../assets/images/dash-image.jpg";
-import { useGetAllTasksQuery } from "../../store/services/tasksApi";
+import { useGetTaskOverviewApiQuery } from "../../store/services/task.overview";
 import Calendar from "../organisms/Calendar";
 import DateTimeDisplay from "../atoms/Clock";
+import { currentDateInfo as currentDate } from "../../utils/date-time.util";
 
 const Dashboard: React.FC = () => {
-  const { data: tasks } = useGetAllTasksQuery();
+  const { data: taskOverview } = useGetTaskOverviewApiQuery({
+    calendar_month: currentDate().currentMonthNumber,
+  });
   const { Text, Title } = Typography;
-
-  // TODO:optimize
-  const inCompletedTasks = tasks?.filter((task) => !task.isComplete).length;
 
   return (
     <Space size={"middle"} direction="vertical" className="mb-4">
@@ -21,7 +21,7 @@ const Dashboard: React.FC = () => {
             Welcome to your Dashboard
           </h1>
           <Text className="text-white! font-semibold">
-            You have {inCompletedTasks} pending tasks.
+            You have {taskOverview?.pendingTasksCount || 0} pending tasks.
           </Text>
         </div>
         <div className="heading-image-container">
@@ -39,7 +39,10 @@ const Dashboard: React.FC = () => {
         <Col xs={{ span: 24, order: 1 }} md={{ span: 12, order: 2 }}>
           <Card className=" text-right">
             <DateTimeDisplay />
-            <Calendar parentClassName="task-overview" />
+            <Calendar
+              deadlines={taskOverview?.tasks || []}
+              parentClassName="task-overview"
+            />
           </Card>
         </Col>
 
@@ -51,14 +54,16 @@ const Dashboard: React.FC = () => {
                 <Card>
                   <Text strong>Total Tasks</Text>
                   <br />
-                  <Title level={4}>{tasks?.length || 0}</Title>
+                  <Title level={4}>{taskOverview?.totalTasks || 0}</Title>
                 </Card>
               </Col>
               <Col span={12}>
                 <Card>
                   <Text strong>Pending Tasks</Text>
                   <br />
-                  <Title level={4}>{inCompletedTasks || 0}</Title>
+                  <Title level={4}>
+                    {taskOverview?.pendingTasksCount || 0}
+                  </Title>
                 </Card>
               </Col>
             </Row>

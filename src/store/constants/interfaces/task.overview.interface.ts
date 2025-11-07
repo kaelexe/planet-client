@@ -14,6 +14,9 @@ import type { Task } from "./task.interface";
 export interface TaskOverview {
   tasks: Task[];
   activityLogs: ActivityLog[];
+  // contents may change in the future
+  totalTasks: number;
+  pendingTasksCount: number;
 }
 
 export interface TaskOverviewQuery {

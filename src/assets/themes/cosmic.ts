@@ -1,18 +1,18 @@
 import { theme as antdTheme, type ThemeConfig } from "antd";
 
 export const cosmicTheme: ThemeConfig = {
-  algorithm: antdTheme.defaultAlgorithm,
+  algorithm: antdTheme.darkAlgorithm,
   token: {
-    colorPrimary: "#5b49f0", // cosmic purple
-    colorInfo: "#63b3ed", // celestial blue
+    colorPrimary: "#8b5cf6", // vibrant cosmic purple
+    colorInfo: "#06b6d4", // electric cyan blue
     colorSuccess: "#10b981", // emerald green
     colorWarning: "#f59e0b", // orbit gold
     colorError: "#ef4444", // red
-    colorBgBase: "#1a2332", // deep space blue
-    colorBgContainer: "#2d3748", // surface dark
-    colorTextBase: "#f8fafc", // white text
-    colorTextSecondary: "#cbd5e1", // subtle text
-    colorBorder: "#374151", // dark gray border
-    colorSplit: "#475569", // divider lines
+    colorBgBase: "#0f0a19", // deep cosmic void
+    colorBgContainer: "#1a1033", // dark nebula purple
+    colorTextBase: "#e2e8f0", // starry white
+    colorTextSecondary: "#94a3b8", // muted cosmic gray
+    colorBorder: "#2d1b69", // purple border
+    colorSplit: "#3b2a7a", // nebula divider
   },
 };

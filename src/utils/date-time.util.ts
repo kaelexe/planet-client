@@ -16,9 +16,12 @@ export const currentDateInfo = () => {
   return {
     // Today
     now,
-    // Day
+    // Week Day
     currentDayName: now.format("dddd"), // e.g. Tuesday
     currentDayNumber: now.date(), // e.g. 2
+
+    // Day
+    currentDay: now.format("D"), // e.g. 7 (7th day of the month)
 
     // Month
     currentMonthName: now.format("MMMM"), // e.g. November
@@ -102,6 +105,8 @@ export const formatDate = (dateInput: string) => {
     completeDateTime: date.format("ddd, MMMM D, YYYY h:mm A"), // Sat, October 25, 2025 1:38 AM
     dayAndMonth: date.format("dddd, MMMM D"), // Saturday, October 25
     monthDayAndYear: date.format("MMMM D, YYYY"), // October 25, 2025
+    YearMonthAndDay: date.format("YYYY-MM-DD"), // 2025-10-25
+    day: date.format("D"), // 25
     relative: date.fromNow(), // 5 days ago
   };
 };
@@ -134,4 +139,19 @@ export const getTimeAgo = (dateInput: string): string => {
   if (diffWeeks < 5) return `${diffWeeks}w ago`;
   if (diffMonths < 12) return `${diffMonths}mo ago`;
   return `${diffYears}y ago`;
+};
+
+/**
+ * Get the difference between two dates in days.
+ * @param to - The target date (e.g. due date)
+ * @param from - The reference date (e.g. created date)
+ * @returns Positive number = days remaining, negative = days past due, 0 = same day
+ */
+export const getDateDifferenceInDays = (
+  to: string | Date,
+  from: string | Date
+): number => {
+  const toDate = dayjs(to);
+  const fromDate = dayjs(from);
+  return toDate.diff(fromDate, "day");
 };

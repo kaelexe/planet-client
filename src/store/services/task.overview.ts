@@ -4,9 +4,9 @@ import type {
   TaskOverviewQuery,
 } from "../constants/interfaces/task.overview.interface";
 
-export const activityLogsApi = api.injectEndpoints({
+export const taskOverviewApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getAllActivityLogs: builder.query<TaskOverview[], TaskOverviewQuery>({
+    getTaskOverviewApi: builder.query<TaskOverview, TaskOverviewQuery>({
       query: (params) => {
         const queryString = new URLSearchParams();
         Object.entries(params).forEach(([key, value]) => {
@@ -24,4 +24,4 @@ export const activityLogsApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetAllActivityLogsQuery } = activityLogsApi;
+export const { useGetTaskOverviewApiQuery } = taskOverviewApi;

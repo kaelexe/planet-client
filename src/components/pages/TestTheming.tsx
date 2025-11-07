@@ -4,7 +4,7 @@ import ThemeToggle from "../atoms/ThemeToggle";
 
 const { Title, Paragraph } = Typography;
 
-const Dashboard: React.FC = () => {
+const TestTheming: React.FC = () => {
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center gap-6 
@@ -47,4 +47,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default TestTheming;
