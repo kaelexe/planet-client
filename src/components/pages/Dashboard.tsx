@@ -68,7 +68,14 @@ const Dashboard: React.FC = () => {
               </Col>
             </Row>
             <Card title="Recent Activities">
-              <Text>No recent activities.</Text>
+              {/* TODO: improve this section */}
+              <ul>
+                {taskOverview?.activityLogs?.map((log) => (
+                  <li key={log.id}>
+                    {log.entityId} - {log.action} - {log.createdAt.toString()}
+                  </li>
+                ))}
+              </ul>
             </Card>
           </Space>
         </Col>
